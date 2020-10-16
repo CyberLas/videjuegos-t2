@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ZombieController : MonoBehaviour
 {
+    private PuntajeController puntajeController;
     int seguir = 0;
+    int puntaje = 0;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sr;
@@ -15,6 +17,7 @@ public class ZombieController : MonoBehaviour
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         StartCoroutine(waiter());
+        puntajeController = FindObjectOfType<PuntajeController>();
     }
 
     // Update is called once per frame
@@ -30,11 +33,18 @@ public class ZombieController : MonoBehaviour
 
         if(seguir == 0){
             rb.velocity = new Vector2(-1, rb.velocity.y);
-            
             sr.flipX = true;
         }else{
             rb.velocity = new Vector2(1, rb.velocity.y);
             sr.flipX = false;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(other.gameObject.tag == "kunai") {
+            Destroy(gameObject,0.5f);
+            puntaje += 10;
+            puntajeController.AddVida(puntaje);
         }
     }
 }

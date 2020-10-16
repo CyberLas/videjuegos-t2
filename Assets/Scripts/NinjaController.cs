@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class NinjaController : MonoBehaviour
 {
-    public GameObject puntajeController;
+    private PuntajeController puntajeController;
+
+
+    public Transform KunaiSpawner;
+    public GameObject  KunaiPrefab;
+
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sr;
-
-    
 
     NinjaController controller;
 
@@ -33,6 +36,7 @@ private float movementSpeed = 5f;
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         controller = GetComponent<NinjaController>();
+        puntajeController = FindObjectOfType<PuntajeController>();
     }
 
     // Update is called once per frame
@@ -83,6 +87,7 @@ private float movementSpeed = 5f;
             if(muerte == 0)
             {
                 animator.SetInteger("attack", 1);
+                Instantiate(KunaiPrefab, KunaiSpawner.position, KunaiSpawner.rotation);
             }
         }
 

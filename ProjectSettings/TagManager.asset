@@ -8,6 +8,7 @@ TagManager:
   - zombie
   - ninja
   - escalera
+  - point
   layers:
   - Default
   - TransparentFX
