@@ -141,11 +141,12 @@ private float movementSpeed = 5f;
     }
     
     private void OnCollisionEnter2D(Collision2D other) {
-        if((other.gameObject.tag == "zombie") && vida < 0) {
-            animator.SetInteger("dead", 1);
-            muerte = 1;
-        }else{
-            puntajeController.AddVida(vida--);
+        if((other.gameObject.tag == "zombie")) {
+            if(vida<0){
+                animator.SetInteger("dead", 1);
+                muerte = 1;
+            }
+            puntajeController.AddVida(vida);
             vida--;
         }
         
