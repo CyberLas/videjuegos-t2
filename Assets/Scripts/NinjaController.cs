@@ -25,7 +25,7 @@ public class NinjaController : MonoBehaviour
     public float exitHop = 3f;
 
     private int muerte = 0;
-    private int vida = 3;
+    private int vida = 2;
     private int a=0;
 
     
@@ -146,8 +146,8 @@ private float movementSpeed = 5f;
                 animator.SetInteger("dead", 1);
                 muerte = 1;
             }
-            puntajeController.AddVida(vida);
             vida--;
+            puntajeController.AddVida(vida);
         }
         
         if((other.gameObject.tag == "escalera")) {
