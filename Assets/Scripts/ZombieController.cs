@@ -44,7 +44,7 @@ public class ZombieController : MonoBehaviour
         if(other.gameObject.tag == "kunai") {
             Destroy(gameObject,0.5f);
             puntaje += 10;
-            puntajeController.AddVida(puntaje);
+            puntajeController.AddPoints(puntaje);
         }
     }
 }

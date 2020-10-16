@@ -13,7 +13,7 @@ public class PuntajeController : MonoBehaviour
     public void AddPoints(int points)
     {
         this.points += points;
-        puntajeText.text = "Puntaje : " + GetPoints();
+        puntajeText.text = "Puntos : " + GetPoints();
     }
 
     public int GetPoints()
@@ -23,7 +23,7 @@ public class PuntajeController : MonoBehaviour
 
     public void AddVida(int vida)
     {
-        this.vida += vida;
+        this.vida -= vida;
         vidaText.text = "Vida : " + GetVida();
     }
 

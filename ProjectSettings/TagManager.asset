@@ -9,6 +9,7 @@ TagManager:
   - ninja
   - escalera
   - point
+  - kunai
   layers:
   - Default
   - TransparentFX
